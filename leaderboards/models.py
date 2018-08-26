@@ -26,11 +26,11 @@ class Category(models.Model):
         # Use proper plural in admin site
         verbose_name_plural = "categories"
 
-    # Add a bunch of methods here to get stats
-
     def __str__(self):
         """String representation of a category."""
         return self.name
+
+    # Add a bunch of methods here to get stats
 
 
 class Course(models.Model):
@@ -45,11 +45,14 @@ class Course(models.Model):
     #    #upload_to=fillmein,
     #    help_text="Preview image for the course.",)
 
-    # Add a bunch of methods here to get stats
+    class Meta:
+        ordering = ['course_number']
 
     def __str__(self):
         """String representation of a course."""
         return self.name
+
+    # Add a bunch of methods here to get stats
 
 
 class AbstractRecord(models.Model):
@@ -93,6 +96,9 @@ class SixStarCourseRecord(AbstractRecord):
         on_delete=models.CASCADE,
         help_text="The course for this record.",)
 
+    class Meta:
+        ordering = ['course__course_number', 'time']
+
 
 class SevenStarCourseRecord(AbstractRecord):
     """A record for getting six-stars on a course."""
@@ -100,3 +106,6 @@ class SevenStarCourseRecord(AbstractRecord):
         Course,
         on_delete=models.CASCADE,
         help_text="The course for this record.",)
+
+    class Meta:
+        ordering = ['course__course_number', 'time']
