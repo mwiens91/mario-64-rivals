@@ -18,9 +18,9 @@ class Category(models.Model):
         help_text="The name of the category.",)
     description = models.TextField(
         help_text="The descriptions and rules of the category.")
-    preview_image = models.ImageField(
-        #upload_to=fillmein,
-        help_text="Preview image for the category.",)
+    #preview_image = models.ImageField(
+    #    #upload_to=fillmein,
+    #    help_text="Preview image for the category.",)
 
     # Add a bunch of methods here to get stats
 
@@ -37,9 +37,9 @@ class Course(models.Model):
     course_number = models.PositiveIntegerField(
         primary_key=True,
         help_text="The course number.",)
-    preview_image = models.ImageField(
-        #upload_to=fillmein,
-        help_text="Preview image for the course.",)
+    #preview_image = models.ImageField(
+    #    #upload_to=fillmein,
+    #    help_text="Preview image for the course.",)
 
     # Add a bunch of methods here to get stats
 
@@ -54,8 +54,8 @@ class AbstractRecord(models.Model):
         User,
         on_delete=models.CASCADE,
         help_text="The user making the record.")
-    time = models.TimeField(
-        help_text="The time for the record.")
+    time = models.PositiveIntegerField(
+        help_text="The time elapsed in seconds for the record.")
     date = models.DateField(
         default=datetime.date.today,
         help_text="The date the record was made.",)
