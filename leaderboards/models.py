@@ -54,7 +54,7 @@ class AbstractRecord(models.Model):
         User,
         on_delete=models.CASCADE,
         help_text="The user making the record.")
-    time = models.PositiveIntegerField(
+    time = models.DurationField(
         help_text="The time elapsed in seconds for the record.")
     date = models.DateField(
         default=datetime.date.today,
@@ -79,8 +79,16 @@ class CategoryRecord(AbstractRecord):
         help_text="The category for this record",)
 
 
-class CourseRecord(AbstractRecord):
-    """A record for a course."""
+class SixStarCourseRecord(AbstractRecord):
+    """A record for getting six-stars on a course."""
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        help_text="The course for this record",)
+
+
+class SevenStarCourseRecord(AbstractRecord):
+    """A record for getting six-stars on a course."""
     course = models.ForeignKey(
         Course,
         on_delete=models.CASCADE,

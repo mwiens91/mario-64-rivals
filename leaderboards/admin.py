@@ -7,7 +7,8 @@ from .models import (
     Category,
     Course,
     CategoryRecord,
-    CourseRecord,
+    SevenStarCourseRecord,
+    SixStarCourseRecord,
 )
 
 
@@ -33,7 +34,13 @@ class CategoryRecordAdmin(admin.ModelAdmin):
     list_display = ('user', 'category', 'date', 'time', )
 
 
-@admin.register(CourseRecord)
-class CourseRecordAdmin(admin.ModelAdmin):
+@admin.register(SevenStarCourseRecord)
+class SevenStarCourseRecordAdmin(admin.ModelAdmin):
+    """Display specific fields for admin page."""
+    list_display = ('user', 'course', 'date', 'time', )
+
+
+@admin.register(SixStarCourseRecord)
+class SixStarCourseRecordAdmin(admin.ModelAdmin):
     """Display specific fields for admin page."""
     list_display = ('user', 'course', 'date', 'time', )
