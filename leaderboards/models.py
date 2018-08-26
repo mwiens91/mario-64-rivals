@@ -83,7 +83,7 @@ class CategoryRecord(AbstractRecord):
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
-        help_text="The category for this record",)
+        help_text="The category for this record.",)
 
 
 class SixStarCourseRecord(AbstractRecord):
@@ -91,7 +91,7 @@ class SixStarCourseRecord(AbstractRecord):
     course = models.ForeignKey(
         Course,
         on_delete=models.CASCADE,
-        help_text="The course for this record",)
+        help_text="The course for this record.",)
 
 
 class SevenStarCourseRecord(AbstractRecord):
@@ -99,4 +99,4 @@ class SevenStarCourseRecord(AbstractRecord):
     course = models.ForeignKey(
         Course,
         on_delete=models.CASCADE,
-        help_text="The course for this record",)
+        help_text="The course for this record.",)
