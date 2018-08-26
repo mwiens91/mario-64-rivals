@@ -22,6 +22,10 @@ class Category(models.Model):
     #    #upload_to=fillmein,
     #    help_text="Preview image for the category.",)
 
+    class Meta:
+        # Use proper plural in admin site
+        verbose_name_plural = "categories"
+
     # Add a bunch of methods here to get stats
 
     def __str__(self):
