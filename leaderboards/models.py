@@ -55,7 +55,10 @@ class AbstractRecord(models.Model):
         on_delete=models.CASCADE,
         help_text="The user making the record.")
     time = models.DurationField(
-        help_text="The time elapsed in seconds for the record.")
+        help_text=(
+            "The time elapsed for the record. "
+            "Specify the number of seconds or use "
+            "hh:mm:ss format."),)
     date = models.DateField(
         default=datetime.date.today,
         help_text="The date the record was made.",)
