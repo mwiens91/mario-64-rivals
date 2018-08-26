@@ -1,3 +1,9 @@
+"""Views for leaderboards."""
+
+import os
 from django.shortcuts import render
 
-# Create your views here.
+
+def home_page_view(request):
+    """View for the main page."""
+    return render(request, 'leaderboards/base.html')
