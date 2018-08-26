@@ -1,5 +1,7 @@
 Django==2.1
 django-dotenv==1.4.2
+django-extensions==2.1.0
 Pillow==5.2.0
 psycopg2-binary==2.7.5
 pytz==2018.5
+six==1.11.0
