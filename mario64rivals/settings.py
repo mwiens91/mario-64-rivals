@@ -23,7 +23,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ['DEBUG']
+DEBUG_RAW = os.environ['DEBUG']
+
+if DEBUG_RAW == 'False':
+    DEBUG = False
+elif DEBUG_RAW == 'True':
+    DEBUG = True
+else:
+    # Bad value in config file!
+    raise ValueError("DEBUG must be True/False")
 
 ALLOWED_HOSTS = os.environ['ALLOWED_HOSTS'].replace("'", "").split(',')
 ALLOWED_HOSTS = list(filter(None, ALLOWED_HOSTS))
@@ -124,6 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Use custom user model as default user
 
