@@ -16,19 +16,66 @@ main navigation links.
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}">
 
+	<!-- leaderboards CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static "leaderboards/css/style.css" %}">
+
 	<!-- favicon -->
 	<link rel="icon" href="{% static "leaderboards/favicon/favicon.ico" %}">
 
-
-	<title>Hello, world!</title>
+	<title>Mario 64 Rivals{% block subtitle %}{% endblock %}</title>
 	</head>
 	<body>
-	<h1>Hello, world!</h1>
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#">Mario 64 Rivals</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsMain" aria-controls="navbarsMain" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsMain">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="courses-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Course records</a>
+					<div class="dropdown-menu" aria-labelledby="courses-dropdown">
+						<a class="dropdown-item" href="#">Six star</a>
+						<a class="dropdown-item" href="#">Seven star</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="categories-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category records</a>
+					<div class="dropdown-menu" aria-labelledby="categories-dropdown">
+						<a class="dropdown-item" href="#">Six star</a>
+						<a class="dropdown-item" href="#">Seven star</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Stats</a>
+				</li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Profile things</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<main role="main" class="container">
+
+		<div class="main-content-box">
+			{% block content %}
+				<h1>Mario 64 Rivals</h1>
+				<p>Add content here!</p>
+			{% endblock %}
+		</div>
+
+	</main><!-- /.container -->
+
+
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="{% static "jquery/js/jquery-3.3.1.min.js" %}"</script>
-	<script src="{% static "popper.js/js/popper-1.14.3.min.js" %}"</script>
-	<script src="{% static "bootstrap/js/bootstrap.min.js" %}"</script>
-	</head>
+	<script src="{% static "jquery/js/jquery-3.3.1.slim.min.js" %}"></script>
+	<script src="{% static "popper.js/js/popper.min.js" %}"></script>
+	<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
 </html>
