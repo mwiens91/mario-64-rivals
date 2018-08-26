@@ -18,9 +18,9 @@ COURSE_DICTIONARY = {
     13: "Tiny, Huge Island",
     14: "Tick Tock Clock",
     15: "Rainbow Ride",
-    16: "Bowser in the Dark World",
-    17: "Bowser in the Fire Sea",
-    18: "Bowser in the Sky",
+    # 16: "Bowser in the Dark World",
+    # 17: "Bowser in the Fire Sea",
+    # 18: "Bowser in the Sky",
 }
 
 def setup_courses(apps, schema_editor):
