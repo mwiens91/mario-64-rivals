@@ -38,7 +38,7 @@ class Course(models.Model):
     name = models.CharField(
         max_length=150,
         help_text="The name of the course.",)
-    course_number = models.PositiveIntegerField(
+    course_number = models.PositiveSmallIntegerField(
         primary_key=True,
         help_text="The course number.",)
     #preview_image = models.ImageField(
