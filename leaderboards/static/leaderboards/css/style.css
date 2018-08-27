@@ -5,3 +5,14 @@ body {
 .main-content-box {
 	padding: 3rem 1.5rem;
 }
+
+/* Mario font :) */
+@font-face {
+	font-family: 'PressStart2P';
+	src: url('../fonts/PressStart2P.ttf') format("truetype");
+}
+
+.main-title {
+	font-family: PressStart2P;
+	padding-left: 0.29em;
+}
