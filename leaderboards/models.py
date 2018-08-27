@@ -88,6 +88,9 @@ class CategoryRecord(AbstractRecord):
         on_delete=models.CASCADE,
         help_text="The category for this record.",)
 
+    class Meta:
+        ordering = ['category__id', 'time']
+
 
 class SixStarCourseRecord(AbstractRecord):
     """A record for getting six-stars on a course."""
