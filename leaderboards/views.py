@@ -1,6 +1,5 @@
 """Views for leaderboards."""
 
-import os
 from django.shortcuts import render
 
 

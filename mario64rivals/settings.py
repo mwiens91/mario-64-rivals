@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # Use custom user model as default user
 
 AUTH_USER_MODEL = 'leaderboards.User'
+
+# Where to redirect to after login and logout
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
