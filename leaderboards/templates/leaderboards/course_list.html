@@ -9,9 +9,9 @@
 {% block content %}
 	<div class="card-rows">
 		{% for course in course_list %}
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<div class="card">
-					<img class="card-img-top img-fluid" src="https://placehold.it/500x120">
+					<img class="card-img-top img-fluid" src="{{ course.preview_image.url }}">
 					<div class="card-block">
 						<h5 class="card-title">{{ course }}</h5>
 						<p class="card-text">Stage description.</p>

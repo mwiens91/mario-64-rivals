@@ -41,9 +41,10 @@ class Course(models.Model):
     course_number = models.PositiveSmallIntegerField(
         primary_key=True,
         help_text="The course number.",)
-    #preview_image = models.ImageField(
-    #    #upload_to=fillmein,
-    #    help_text="Preview image for the course.",)
+    preview_image = models.ImageField(
+        default="https://via.placeholder.com/320x224",
+        upload_to='courses/',
+        help_text="Preview image for the course.",)
 
     class Meta:
         ordering = ['course_number']
