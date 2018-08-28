@@ -16,3 +16,14 @@ body {
 	font-family: PressStart2P;
 	padding-left: 0.29em;
 }
+
+/* Card deck rows */
+.card-rows {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.card-rows > div[class*='col-'] {
+	display: flex;
+	margin: 0.69em 0;
+}

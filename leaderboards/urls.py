@@ -6,7 +6,9 @@ from leaderboards import views
 
 
 urlpatterns = [
-    path(r'', views.HomeView.as_view(), name='home'),
+    path(r'', views.Home.as_view(), name='home'),
+    path(r'about/', views.About.as_view(), name='about'),
+    path(r'courses/', views.CourseList.as_view(), name='course_list'),
     path(r'login/', auth_views.LoginView.as_view(template_name='leaderboards/login.html'), name='login'),
     path(r'logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]

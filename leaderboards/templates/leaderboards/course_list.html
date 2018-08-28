@@ -1,0 +1,22 @@
+{% extends "leaderboards/base.html" %}
+
+{% block breadcrumbs %}
+	<li class="breadcrumb-item active" aria-current="page">Courses</li>
+{% endblock %}
+
+{% block content %}
+	<div class="card-rows">
+		{% for course in course_list %}
+			<div class="col-sm-3">
+				<div class="card">
+					<img class="card-img-top img-fluid" src="https://placehold.it/500x120">
+					<div class="card-block">
+						<h5 class="card-title">{{ course }}</h5>
+						<p class="card-text">Stage description.</p>
+						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

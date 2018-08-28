@@ -37,12 +37,8 @@ main navigation links.
 
 		<div class="collapse navbar-collapse" id="navbarsMain">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="courses-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Courses</a>
-					<div class="dropdown-menu" aria-labelledby="courses-dropdown">
-						<a class="dropdown-item" href="#">Six star runs</a>
-						<a class="dropdown-item" href="#">Seven star runs</a>
-					</div>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url "course_list" %}">Courses</a>
 				</li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="categories-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -52,7 +48,7 @@ main navigation links.
 					</div>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">About</a>
+					<a class="nav-link" href="{% url "about" %}">About</a>
 				</li>
 			</ul>
 			<ul class="navbar-nav ml-auto">
@@ -63,7 +59,7 @@ main navigation links.
 					</li>
 				{% else %}
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.get_username }}</a>
+						<a class="nav-link dropdown-toggle" href="" id="user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.get_username }}</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-dropdown">
 							{# Give a link to the admin page if the user is an admin #}
 							{% if user.is_superuser %}
@@ -80,6 +76,14 @@ main navigation links.
 	<main role="main" class="container">
 
 		<div class="main-content-box">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					{% block breadcrumbs %}
+						<li class="breadcrumb-item active" aria-current="page">Home</li>
+					{% endblock %}
+				</ol>
+			</nav>
+
 			{% block content %}
 				<h1>Mario 64 Rivals</h1>
 				<p>Add content here!</p>
