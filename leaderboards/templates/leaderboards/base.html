@@ -75,14 +75,15 @@ main navigation links.
 
 	<main role="main" class="container">
 
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				{% block breadcrumbs %}
+					<li class="breadcrumb-item active" aria-current="page">Home</li>
+				{% endblock %}
+			</ol>
+		</nav>
+
 		<div class="main-content-box">
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					{% block breadcrumbs %}
-						<li class="breadcrumb-item active" aria-current="page">Home</li>
-					{% endblock %}
-				</ol>
-			</nav>
 
 			{% block content %}
 				<h1>Mario 64 Rivals</h1>
