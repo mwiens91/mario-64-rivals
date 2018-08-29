@@ -27,3 +27,18 @@ body {
 	display: flex;
 	margin: 0.69em 0;
 }
+
+/* Allow entire card to be a link */
+a.card {
+	color: inherit;
+	text-decoration: inherit;
+}
+a.card button {
+	z-index: 1;
+}
+
+a.card.disabled,
+a.card[disabled] {
+	pointer-events: none;
+	opacity: .8;
+}

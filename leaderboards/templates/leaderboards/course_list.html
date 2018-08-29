@@ -10,14 +10,14 @@
 	<div class="card-rows">
 		{% for course in course_list %}
 			<div class="col-sm-4">
-				<div class="card">
+				<a href="#" class="card">
 					<img class="card-img-top img-fluid" src="{{ course.preview_image.url }}">
-					<div class="card-block">
+					<div class="card-body">
 						<h5 class="card-title">{{ course }}</h5>
 						<p class="card-text">Stage description.</p>
 						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 					</div>
-				</div>
+				</a>
 			</div>
 		{% endfor %}
 	</div>
