@@ -53,7 +53,19 @@ class Course(models.Model):
         """String representation of a course."""
         return self.name
 
-    # Add a bunch of methods here to get stats
+    def get_top_six_star_record(self):
+        """Gets the best six star record for the course.
+
+        Returns None if no record exists.
+        """
+        return self.sixstarcourserecord_set.first()
+
+    def get_top_seven_star_record(self):
+        """Gets the best seven star record for the course.
+
+        Returns None if no record exists.
+        """
+        return self.sevenstarcourserecord_set.first()
 
 
 class AbstractRecord(models.Model):
