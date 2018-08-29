@@ -49,3 +49,8 @@ a.card[disabled] {
 	pointer-events: none;
 	opacity: .8;
 }
+
+/* No adding for group list items */
+.list-group-item {
+	padding-left: 0;
+}
