@@ -10,12 +10,14 @@
 	<div class="card-rows">
 		{% for course in course_list %}
 			<div class="col-sm-4">
-				<a href="#" class="card">
+				<a href="{% url "course-detail" course.course_number %}" class="card">
 					<img class="card-img-top img-fluid" src="{{ course.preview_image.url }}">
 					<div class="card-body">
-						<h5 class="card-title">{{ course }}</h5>
-						<p class="card-text">Stage description.</p>
-						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+						<h5 class="card-title">{{ course.name }}</h5>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span>: mwiens91</li>
+							<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">7</span>: GrandBranny</li>
+						</ul>
 					</div>
 				</a>
 			</div>

@@ -23,3 +23,5 @@ class CourseList(ListView):
 
 class CourseDetail(DetailView):
     model = Course
+    template_name = "leaderboards/course_detail.html"
+    pk_url_kwarg = "course_number"
