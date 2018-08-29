@@ -6,6 +6,13 @@ body {
 	padding: 1.5rem 1.5rem;
 }
 
+/* Always see breadcrumbs, even on mobile */
+@media (max-width: 441px) {
+	.breadcrumb {
+		margin-top: 2.2em;
+	}
+}
+
 /* Mario font :) */
 @font-face {
 	font-family: 'PressStart2P';
