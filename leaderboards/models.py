@@ -83,6 +83,20 @@ class Course(models.Model):
         """Gets a queryset of all seven star records."""
         return self.sevenstarcourserecord_set.all()
 
+    def get_unique_six_star_records(self):
+        """Gets a queryset of each user's best six star record."""
+        include = self.sixstarcourserecord_set.order_by(
+            'user', 'time').distinct('user')
+        include_ids = include.values_list('id')
+        return self.sixstarcourserecord_set.filter(id__in=include_ids)
+
+    def get_unique_seven_star_records(self):
+        """Gets a queryset of each user's best seven star record."""
+        include = self.sevenstarcourserecord_set.order_by(
+            'user', 'time').distinct('user')
+        include_ids = include.values_list('id')
+        return self.sevenstarcourserecord_set.filter(id__in=include_ids)
+
 
 class AbstractRecord(models.Model):
     """Base model for a category or course record."""
