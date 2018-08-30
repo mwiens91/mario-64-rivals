@@ -10,12 +10,12 @@
 {% block content %}
 	<h1>{{ course.name }}</h1>
 
-	<div class="course-content-box">
-		<div class="row" style="padding-top: 1em">
-			<div class="col" style="align-items: center">
-				<img class="rounded" style="padding-top: 0.29em" src="{{ course.preview_image.url }}">
+	<div>
+		<div class="row justify-content-start" style="padding-top: 1em">
+			<div class="col" style="padding-top: 0.19em">
+				<img class="rounded" src="{{ course.preview_image.url }}">
 			</div>
-		<div class="col">
+			<div class="col">
 				<h3>Stats</h3>
 				<ul class="list-group list-group-flush">
 
