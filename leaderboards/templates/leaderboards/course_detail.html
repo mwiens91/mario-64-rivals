@@ -1,6 +1,6 @@
 {% extends "leaderboards/base.html" %}
 
-{% block subtitle %} — {{ course.name }}{% endblock %}
+{% block subtitle %} - {{ course.name }}{% endblock %}
 
 {% block breadcrumbs %}
 	<li class="breadcrumb-item"><a href="{% url "course-list" %}">Courses</a></li>
@@ -8,5 +8,41 @@
 {% endblock %}
 
 {% block content %}
-<h1>{{ course.name }}</h1>
+	<h1>{{ course.name }}</h1>
+
+	<div class="course-content-box">
+		<div class="row" style="padding-top: 1em">
+			<div class="col" style="align-items: center">
+				<img class="rounded" style="padding-top: 0.29em" src="{{ course.preview_image.url }}">
+			</div>
+		<div class="col">
+				<h3>Stats</h3>
+				<ul class="list-group list-group-flush">
+
+					{# Display top records and record counts#}
+					{% with best_six_star_record=course.get_top_six_star_record %}
+						{% if best_six_star_record == None %}
+							<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span> <i class="fa fa-crown"></i>: No one!</li>
+						{% else %}
+							<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span> <i class="fa fa-crown"></i>: {{ best_six_star_record.user.username }}</li>
+						{% endif %}
+					{% endwith %}
+
+					<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span> <i class="fa fa-chart-bar"></i>: {{ course.get_six_star_record_count }} records</li>
+
+					{% with best_seven_star_record=course.get_top_seven_star_record %}
+						{% if best_seven_star_record == None %}
+								<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">7</span> <i class="fa fa-crown"></i>: No one!</li>
+						{% else %}
+							<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">7</span> <i class="fa fa-crown"></i>: {{ best_seven_star_record.user.username }}</li>
+						{% endif %}
+					{% endwith %}
+
+					<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span> <i class="fa fa-chart-bar"></i>: {{ course.get_seven_star_record_count }} records</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
 {% endblock %}

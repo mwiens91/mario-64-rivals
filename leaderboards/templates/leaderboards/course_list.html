@@ -1,6 +1,6 @@
 {% extends "leaderboards/base.html" %}
 
-{% block subtitle %} — courses{% endblock %}
+{% block subtitle %} - courses{% endblock %}
 
 {% block breadcrumbs %}
 	<li class="breadcrumb-item active" aria-current="page">Courses</li>
@@ -15,7 +15,8 @@
 					<div class="card-body">
 						<h5 class="card-title">{{ course.name }}</h5>
 						<ul class="list-group list-group-flush">
-							{# Display top record #}
+
+							{# Display top records #}
 							{% with best_six_star_record=course.get_top_six_star_record best_seven_star_record=course.get_top_seven_star_record %}
 								{% if best_six_star_record == None %}
 									<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span>: No records!</li>
@@ -29,6 +30,7 @@
 									<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">7</span>: {{ best_seven_star_record.user.username }}</li>
 								{% endif %}
 							{% endwith %}
+
 						</ul>
 					</div>
 				</a>
