@@ -1,0 +1,23 @@
+{# Display the record in a DataTable #}
+<table id="{{ table_id }}" class="display" style="width: 100%">
+	<thead>
+		<tr>
+			<th>Rank</th>
+			<th>User</th>
+			<th>Time</th>
+			<th>Date</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for record in record_set %}
+			<tr>
+				<td>{{ forloop.counter }}</td>
+				<td>{{ record.user.username }}</td>
+				<td>{{ record.time }}</td>
+				<td>{{ record.date }}</td>
+				<td><a href="{{ record.video_url }}"><i class="fa fa-video"></i></a></td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
