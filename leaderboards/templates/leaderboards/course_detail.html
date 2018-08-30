@@ -19,7 +19,7 @@
 				<h3>Stats</h3>
 				<ul class="list-group list-group-flush">
 
-					{# Display top records and record counts#}
+					{# Display top records and record counts #}
 					{% with best_six_star_record=course.get_top_six_star_record %}
 						{% if best_six_star_record == None %}
 							<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span> <i class="fa fa-crown"></i>: No one!</li>
@@ -28,7 +28,13 @@
 						{% endif %}
 					{% endwith %}
 
-					<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span> <i class="fa fa-chart-bar"></i>: {{ course.get_six_star_record_count }} records</li>
+					{% with num_six_star_records=course.get_six_star_record_count %}
+						{% if num_six_star_records == 1 %}
+							<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span> <i class="fa fa-chart-bar"></i>: {{ num_six_star_records }} record</li>
+						{% else %}
+							<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span> <i class="fa fa-chart-bar"></i>: {{ num_six_star_records }} records</li>
+						{% endif %}
+					{% endwith %}
 
 					{% with best_seven_star_record=course.get_top_seven_star_record %}
 						{% if best_seven_star_record == None %}
@@ -38,7 +44,13 @@
 						{% endif %}
 					{% endwith %}
 
-					<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span> <i class="fa fa-chart-bar"></i>: {{ course.get_seven_star_record_count }} records</li>
+					{% with num_seven_star_records=course.get_seven_star_record_count %}
+						{% if num_seven_star_records == 1 %}
+							<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span> <i class="fa fa-chart-bar"></i>: {{ num_seven_star_records }} record</li>
+						{% else %}
+							<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> <span style="font-weight: bold">6</span> <i class="fa fa-chart-bar"></i>: {{ num_seven_star_records }} records</li>
+						{% endif %}
+					{% endwith %}
 
 				</ul>
 			</div>
