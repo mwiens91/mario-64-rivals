@@ -75,6 +75,14 @@ class Course(models.Model):
         """Gets the number of six star records submitted."""
         return self.sevenstarcourserecord_set.count()
 
+    def get_six_star_records(self):
+        """Gets a queryset of all six star records."""
+        return self.sixstarcourserecord_set.all()
+
+    def get_seven_star_records(self):
+        """Gets a queryset of all seven star records."""
+        return self.sevenstarcourserecord_set.all()
+
 
 class AbstractRecord(models.Model):
     """Base model for a category or course record."""

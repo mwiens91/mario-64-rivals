@@ -20,6 +20,7 @@ main navigation links.
 	<link rel="stylesheet" type="text/css" href="{% static "font-awesome/css/all.min.css" %}">
 
 	<!-- DataTables CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static "datatables/css/jquery.dataTables.min.css" %}">
 	<link rel="stylesheet" type="text/css" href="{% static "datatables/css/dataTables.bootstrap4.min.css" %}">
 
 	<!-- leaderboards CSS -->
@@ -108,4 +109,6 @@ main navigation links.
 	<script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "datatables/js/jquery.dataTables.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "datatables/js/dataTables.bootstrap4.min.js" %}"></script>
+
+	{% block scripts %}{% endblock %}
 </html>

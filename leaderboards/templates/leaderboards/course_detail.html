@@ -57,4 +57,38 @@
 		</div>
 	</div>
 
+	{# Display the record in a DataTable #}
+	<div style="padding-top: 3em">
+		<table id="course_records" class="display" style="width: 100%">
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>User</th>
+					<th>Time</th>
+					<th>Date</th>
+					<th>Recording</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for record in course.get_six_star_records %}
+					<tr>
+						<td>{{ forloop.counter }}</td>
+						<td>{{ record.user.username }}</td>
+						<td>{{ record.time }}</td>
+						<td>{{ record.date }}</td>
+						<td>{{ record.video_url }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		$(document).ready(function(){
+			$('#course_records').DataTable();
+		});
+	</script>
 {% endblock %}
