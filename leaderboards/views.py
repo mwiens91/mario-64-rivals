@@ -21,7 +21,25 @@ class CourseList(ListView):
     template_name = "leaderboards/course_list.html"
 
 
-class CourseDetail(DetailView):
+class CourseDetailSixStarLeaderboard(DetailView):
     model = Course
-    template_name = "leaderboards/course_detail.html"
+    template_name = "leaderboards/course_detail_six_star_leaderboard.html"
+    pk_url_kwarg = "course_number"
+
+
+class CourseDetailSevenStarLeaderboard(DetailView):
+    model = Course
+    template_name = "leaderboards/course_detail_seven_star_leaderboard.html"
+    pk_url_kwarg = "course_number"
+
+
+class CourseDetailSixStarRecords(DetailView):
+    model = Course
+    template_name = "leaderboards/course_detail_six_star_records.html"
+    pk_url_kwarg = "course_number"
+
+
+class CourseDetailSevenStarRecords(DetailView):
+    model = Course
+    template_name = "leaderboards/course_detail_seven_star_records.html"
     pk_url_kwarg = "course_number"

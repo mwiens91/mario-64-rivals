@@ -57,9 +57,21 @@
 		</div>
 	</div>
 
+	{# Select which records to show #}
+	<ul class="nav nav-pills nav-fill" style="padding-top: 1.5em; padding-bottom: 1.5em">
+		{% block nav-items %}
+			<li class="nav-item"><a class="nav-link active" href="{% url "course-detail-six-star-leaderboard" course.course_number %}">6 Star Leaderboard</a></li>
+			<li class="nav-item"><a class="nav-link" href="{% url "course-detail-seven-star-leaderboard" course.course_number %}">7 Star Leaderboard</a></li>
+			<li class="nav-item"><a class="nav-link" href="{% url "course-detail-six-star-records" course.course_number %}">6 Star Records</a></li>
+			<li class="nav-item"><a class="nav-link" href="{% url "course-detail-seven-star-records" course.course_number %}">7 Star Records</a></li>
+		{% endblock %}
+	</ul>
+
 	{# Display the record in a DataTable #}
-	<div style="padding-top: 3em">
-		{% include "leaderboards/includes/records_datatable.html" with record_set=course.get_six_star_records table_id="course_records" %}
+	<div>
+		{% block recordtable %}
+			{% include "leaderboards/includes/records_datatable.html" with record_set=course.get_six_star_records table_id="course_records" %}
+		{% endblock %}
 	</div>
 
 {% endblock %}
