@@ -123,6 +123,30 @@ class AbstractRecord(models.Model):
         """String representation of a record."""
         return "%s on %s: %s" % (self.user, self.date, self.time)
 
+    def display_time(self):
+        """Displays time in a guaranteed sortable format.
+
+        Note that the time field is represented as a datetime.timedelta
+        object.
+
+        If then number of hours is more than 9, we want this to return
+        9:59:59 (which, by the way, is a time interval that has no
+        place in Mario 64 speedrunning; but better to be careful).
+        """
+        minutes, seconds = divmod(
+            self.time.seconds + self.time.days * 86400,
+            60)
+        hours, minutes = divmod(minutes, 60)
+        print(hours, minutes, seconds)
+
+        # Set time to 99:60 if necessary
+        if hours > 9:
+            hours = 9
+            minutes = 59
+            seconds = 59
+
+        return '{:01d}:{:02d}:{:02d}'.format(hours, minutes, seconds)
+
 
 class CategoryRecord(AbstractRecord):
     """A record for a category."""
