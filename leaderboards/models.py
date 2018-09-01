@@ -155,7 +155,7 @@ class CategoryRecord(AbstractRecord):
         help_text="The category for this record.",)
 
     class Meta:
-        ordering = ['category__id', 'time']
+        ordering = ['category__id', 'time', 'date']
 
 
 class SixStarCourseRecord(AbstractRecord):
@@ -166,7 +166,7 @@ class SixStarCourseRecord(AbstractRecord):
         help_text="The course for this record.",)
 
     class Meta:
-        ordering = ['course__course_number', 'time']
+        ordering = ['course__course_number', 'time', 'date']
 
 
 class SevenStarCourseRecord(AbstractRecord):
@@ -177,4 +177,4 @@ class SevenStarCourseRecord(AbstractRecord):
         help_text="The course for this record.",)
 
     class Meta:
-        ordering = ['course__course_number', 'time']
+        ordering = ['course__course_number', 'time', 'date']
