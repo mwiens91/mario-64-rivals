@@ -20,11 +20,17 @@ from .models import (
     CategoryRecord,
     SixStarCourseRecord,
     SevenStarCourseRecord,
+    Event,
 )
 
 
-class Home(TemplateView):
-    """A view for the homepage."""
+class Home(ListView):
+    """A view for the homepage.
+
+    Displays paginated events.
+    """
+    model = Event
+    paginate_by = 20
     template_name = "leaderboards/home.html"
 
 

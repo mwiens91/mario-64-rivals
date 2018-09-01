@@ -3,11 +3,15 @@
 import datetime
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class User(AbstractUser):
-    """Custom user model."""
-    # Probably want an image avatar per user here
+    """Custom user model.
+
+    Add attributes here as necessary; for example, a user avatar.
+    """
     pass
 
 
@@ -219,3 +223,42 @@ class Event(models.Model):
     def __str__(self):
         """String representation of an event."""
         return self.text
+
+
+@receiver(post_save, sender=SixStarCourseRecord)
+def check_to_create_six_star_course_record_event(instance, created, **kwargs):
+    """Create an event if a best record was set."""
+    # Check if this is the best record
+    if created and instance == instance.course.get_top_six_star_record():
+        Event.objects.create(
+            text="{username} achieved the top six star record with time {time} on {course_name}".format(
+                username=instance.user.username,
+                time=instance.display_time(),
+                course_name=instance.course.name,),
+            image=instance.course.preview_image,)
+
+
+@receiver(post_save, sender=SevenStarCourseRecord)
+def check_to_create_seven_star_course_record_event(instance, created, **kwargs):
+    """Create an event if a best record was set."""
+    # Check if this is the best record
+    if created and instance == instance.course.get_top_seven_star_record():
+        Event.objects.create(
+            text="{username} achieved the top seven star record with time {time} on {course_name}".format(
+                username=instance.user.username,
+                time=instance.display_time(),
+                course_name=instance.course.name,),
+            image=instance.course.preview_image,)
+
+
+@receiver(post_save, sender=CategoryRecord)
+def check_to_create_category_record_event(instance, created, **kwargs):
+    """Create an event if a best record was set."""
+    # Check if this is the best record
+    if created and instance == instance.category.get_top_record():
+        Event.objects.create(
+            text="{username} achieved the top record with time {time} for the {category_name} category".format(
+                username=instance.user.username,
+                time=instance.display_time(),
+                category=instance.category.name,),
+            image=instance.category.preview_image,)
