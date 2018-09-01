@@ -1,0 +1,36 @@
+{% extends "leaderboards/base.html" %}
+
+{% block subtitle %} - categories{% endblock %}
+
+{% block breadcrumbs %}
+	<li class="breadcrumb-item active" aria-current="page">Categories</li>
+{% endblock %}
+
+{% block content %}
+	<div class="card-rows">
+		{% for category in category_list %}
+			<div class="col-sm-4">
+				<a href="{% url "category-detail" category.pk %}" class="card">
+					<img class="card-img-top img-fluid" src="{{ category.preview_image.url }}">
+					<div class="card-body">
+						<h5 class="card-title">{{ category.name }}</h5>
+
+						<ul class="list-group list-group-flush">
+
+							{# Display top record #}
+							{% with best_record=category.get_top_record %}
+								{% if best_record == None %}
+									<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> No records!</li>
+								{% else %}
+									<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> {{ best_record.user.username }}</li>
+								{% endif %}
+							{% endwith %}
+
+						</ul>
+					</div>
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

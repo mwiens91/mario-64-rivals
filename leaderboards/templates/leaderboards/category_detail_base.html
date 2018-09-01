@@ -1,0 +1,11 @@
+{% extends "leaderboards/base.html" %}
+
+{% block subtitle %} - {{ category.name }}{% endblock %}
+
+{% block breadcrumbs %}
+	<li class="breadcrumb-item"><a href="{% url "category-list" %}">Categories</a></li>
+	<li class="breadcrumb-item active" aria-current="page">{{ category.name }}</li>
+{% endblock %}
+
+{% block content %}
+{% endblock %}

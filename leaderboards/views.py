@@ -2,7 +2,7 @@
 
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView, TemplateView
-from .models import Course
+from .models import Category, Course
 
 
 class Home(TemplateView):
@@ -13,6 +13,18 @@ class Home(TemplateView):
 class About(TemplateView):
     """A view for the about page."""
     template_name = "leaderboards/about.html"
+
+
+class CategoryList(ListView):
+    """A view for listing courses."""
+    model = Category
+    template_name = "leaderboards/category_list.html"
+
+
+class CategoryDetail(DetailView):
+    """TEMP VIEW for viewing a category."""
+    model = Category
+    template_name = "leaderboards/category_detail_base.html"
 
 
 class CourseList(ListView):
