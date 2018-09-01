@@ -122,7 +122,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# Timezone to use; note that PostgreSQL always stores date/datetimes in
+# UTC
+TIME_ZONE = os.environ['TIME_ZONE']
 
 USE_I18N = True
 
