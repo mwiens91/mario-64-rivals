@@ -44,7 +44,7 @@ class Category(models.Model):
 
     def get_records(self):
         """Gets a queryset of all records."""
-        return self.categoryecord_set.all()
+        return self.categoryrecord_set.all()
 
     def get_unique_records(self):
         """Gets a queryset of each user's best record."""

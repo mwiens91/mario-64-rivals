@@ -8,4 +8,58 @@
 {% endblock %}
 
 {% block content %}
+	<h1>{{ category.name }}</h1>
+
+	<div>
+		<div class="row justify-content-start" style="padding-top: 1em">
+			<div class="col" style="padding-top: 0.19em">
+				<img class="rounded" src="{{ category.preview_image.url }}">
+			</div>
+			<div class="col">
+				<h3 class="column-detail-title">Description</h3>
+				<p>{{ category.description }}</p>
+
+				<h3>Stats</h3>
+				<ul class="list-group list-group-flush">
+
+					{# Display top records and record counts #}
+					{% with best_record=category.get_top_record %}
+						{% if best_record == None %}
+							<li class="list-group-item"><i class="fa fa-crown"></i>: No one!</li>
+						{% else %}
+							<li class="list-group-item"><i class="fa fa-crown"></i>: {{ best_record.user.username }}</li>
+						{% endif %}
+					{% endwith %}
+
+					{% with num_records=category.get_record_count %}
+						{% if num_records == 1 %}
+							<li class="list-group-item"><i class="fa fa-chart-bar"></i>: {{ num_records }} record</li>
+						{% else %}
+							<li class="list-group-item"><i class="fa fa-chart-bar"></i>: {{ num_records }} records</li>
+						{% endif %}
+					{% endwith %}
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	{# Select which records to show #}
+	<ul class="nav nav-pills nav-fill" style="padding-top: 1.5em; padding-bottom: 1.5em">
+		{% block nav-items %}
+			<li class="nav-item"><a class="nav-link active" href="{% url "category-detail-leaderboard" category.pk %}">Leaderboard</a></li>
+			<li class="nav-item"><a class="nav-link" href="{% url "category-detail-records" category.pk %}">Records</a></li>
+		{% endblock %}
+	</ul>
+
+	{# Display the record in a DataTable #}
+	<div>
+		{% block recordtable %}
+			{% include "leaderboards/includes/records_datatable.html" with record_set=category.get_unique_records table_id="category_records" %}
+		{% endblock %}
+	</div>
+{% endblock %}
+
+{% block scripts %}
+	{% include "leaderboards/includes/records_datatable_script.html" with table_id="category_records" %}
 {% endblock %}

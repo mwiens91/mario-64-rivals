@@ -16,7 +16,7 @@
 				<img class="rounded" src="{{ course.preview_image.url }}">
 			</div>
 			<div class="col">
-				<h3 class="stats-box-title">Stats</h3>
+				<h3 class="column-detail-title">Stats</h3>
 				<ul class="list-group list-group-flush">
 
 					{# Display top records and record counts #}
@@ -70,20 +70,12 @@
 	{# Display the record in a DataTable #}
 	<div>
 		{% block recordtable %}
-			{% include "leaderboards/includes/records_datatable.html" with record_set=course.get_six_star_records table_id="course_records" %}
+			{% include "leaderboards/includes/records_datatable.html" with record_set=course.get_unique_six_star_records table_id="course_records" %}
 		{% endblock %}
 	</div>
 
 {% endblock %}
 
 {% block scripts %}
-	<script>
-		$(document).ready(function(){
-			$('#course_records').DataTable({
-				"columnDefs": [
-					{"orderable": false, "targets": 4}
-				]
-			});
-		});
-	</script>
+	{% include "leaderboards/includes/records_datatable_script.html" with table_id="course_records" %}
 {% endblock %}

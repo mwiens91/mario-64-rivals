@@ -21,10 +21,16 @@ class CategoryList(ListView):
     template_name = "leaderboards/category_list.html"
 
 
-class CategoryDetail(DetailView):
-    """TEMP VIEW for viewing a category."""
+class CategoryDetailLeaderboard(DetailView):
+    """A view for viewing category leaderboards."""
     model = Category
-    template_name = "leaderboards/category_detail_base.html"
+    template_name = "leaderboards/category_detail_leaderboard.html"
+
+
+class CategoryDetailRecords(DetailView):
+    """A view for viewing category records."""
+    model = Category
+    template_name = "leaderboards/category_detail_records.html"
 
 
 class CourseList(ListView):

@@ -60,9 +60,9 @@ a.card[disabled] {
 	padding-left: 0;
 }
 
-/* Add some vertical padding for stats box on narrow viewports */
+/* Add some vertical padding for second detail column box on narrow viewports */
 @media (max-width: 472px) {
-	.stats-box-title {
+	.column-detail-title {
 		padding-top: 0.69em;
 	}
 }
