@@ -22,24 +22,28 @@ class CourseList(ListView):
 
 
 class CourseDetailSixStarLeaderboard(DetailView):
+    """A view for viewing six star leaderboards."""
     model = Course
     template_name = "leaderboards/course_detail_six_star_leaderboard.html"
     pk_url_kwarg = "course_number"
 
 
 class CourseDetailSevenStarLeaderboard(DetailView):
+    """A view for viewing seven star leaderboards."""
     model = Course
     template_name = "leaderboards/course_detail_seven_star_leaderboard.html"
     pk_url_kwarg = "course_number"
 
 
 class CourseDetailSixStarRecords(DetailView):
+    """A view for viewing all six star records."""
     model = Course
     template_name = "leaderboards/course_detail_six_star_records.html"
     pk_url_kwarg = "course_number"
 
 
 class CourseDetailSevenStarRecords(DetailView):
+    """A view for viewing all seven star records."""
     model = Course
     template_name = "leaderboards/course_detail_seven_star_records.html"
     pk_url_kwarg = "course_number"
