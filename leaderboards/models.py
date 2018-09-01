@@ -137,7 +137,6 @@ class AbstractRecord(models.Model):
             self.time.seconds + self.time.days * 86400,
             60)
         hours, minutes = divmod(minutes, 60)
-        print(hours, minutes, seconds)
 
         # Set time to 99:60 if necessary
         if hours > 9:
