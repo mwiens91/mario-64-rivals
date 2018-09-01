@@ -208,6 +208,10 @@ class Event(models.Model):
         auto_now_add=True,
         help_text="The date and time the event occured.",)
     text = models.TextField(help_text="The text of the event.")
+    image = models.ImageField(
+        default="https://via.placeholder.com/320x224",
+        upload_to='events/',
+        help_text="Image for the event.",)
 
     class Meta:
         ordering = ['-datetime']
