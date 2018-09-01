@@ -31,7 +31,27 @@ class Category(models.Model):
         """String representation of a category."""
         return self.name
 
-    # Add a bunch of methods here to get stats
+    def get_top_record(self):
+        """Gets the record for the category.
+
+        Returns None if no record exists.
+        """
+        return self.categoryrecord_set.first()
+
+    def get_record_count(self):
+        """Gets the number of records submitted."""
+        return self.categoryrecord_set.count()
+
+    def get_records(self):
+        """Gets a queryset of all records."""
+        return self.categoryecord_set.all()
+
+    def get_unique_records(self):
+        """Gets a queryset of each user's best record."""
+        include = self.categoryrecord_set.order_by(
+            'user', 'time').distinct('user')
+        include_ids = include.values_list('id')
+        return self.categoryrecord_set.filter(id__in=include_ids)
 
 
 class Course(models.Model):
