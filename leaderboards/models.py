@@ -18,9 +18,10 @@ class Category(models.Model):
         help_text="The name of the category.",)
     description = models.TextField(
         help_text="The descriptions and rules of the category.")
-    #preview_image = models.ImageField(
-    #    #upload_to=fillmein,
-    #    help_text="Preview image for the category.",)
+    preview_image = models.ImageField(
+        default="https://via.placeholder.com/320x224",
+        upload_to='categories/',
+        help_text="Preview image for the category.",)
 
     class Meta:
         # Use proper plural in admin site
