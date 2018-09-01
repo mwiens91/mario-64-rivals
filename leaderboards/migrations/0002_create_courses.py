@@ -27,7 +27,7 @@ def setup_courses(apps, schema_editor):
     for course_number, course_name in COURSE_DICTIONARY.items():
         Course.objects.create(
             name=course_name,
-            course_number= course_number)
+            course_number=course_number)
 
 
 class Migration(migrations.Migration):
