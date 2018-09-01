@@ -1,0 +1,22 @@
+{% extends "leaderboards/base.html" %}
+
+{% block subtitle %} - submit record{% endblock %}
+
+{% block breadcrumbs %}
+	<li class="breadcrumb-item active">Submit record</li>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+	<h1 class="display-4">Submit record</h1>
+	<p class="lead">All records must be accompanied by a long-lived video link: for example, Twitch VODs are not good because they are removed after 60 days, but YouTube videos are good because they are never removed.</p>
+	<p class="lead">Include the time-stamp for where the record starts in the video link.</p>
+	<hr class="my-4">
+	<p>Choose the type of record to submit:</p>
+	<div class="lead">
+		<a class="btn btn-primary btn-lg" style="margin-bottom: 0.5em" href="#" role="button">6 <i class="far fa-star"></i> Course Record</a>
+		<a class="btn btn-primary btn-lg" style="margin-bottom: 0.5em" href="#" role="button">7 <i class="far fa-star"></i> Course Record</a>
+		<a class="btn btn-primary btn-lg" style="margin-bottom: 0.5em" href="#" role="button">Category Record</a>
+	</div>
+</div>
+{% endblock %}

@@ -32,6 +32,11 @@ class ProfileEdit(LoginRequiredMixin, FormView):
         return super().form_valid(form)
 
 
+class RecordSubmitHome(LoginRequiredMixin, TemplateView):
+    """A view for the about page."""
+    template_name = "leaderboards/submit_record_home.html"
+
+
 class About(TemplateView):
     """A view for the about page."""
     template_name = "leaderboards/about.html"

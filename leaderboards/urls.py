@@ -22,4 +22,5 @@ urlpatterns = [
     path(r'courses/<int:course_number>/seven-star-records/', views.CourseDetailSevenStarRecords.as_view(), name='course-detail-seven-star-records'),
     path(r'login/', auth_views.LoginView.as_view(template_name='leaderboards/login.html'), name='login'),
     path(r'logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path(r'submit-record/', views.RecordSubmitHome.as_view(), name='record-submit-home'),
 ]
