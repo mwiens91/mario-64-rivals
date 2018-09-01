@@ -15,7 +15,7 @@
 				<td>{{ forloop.counter }}</td>
 				<td>{{ record.user.username }}</td>
 				<td>{{ record.time }}</td>
-				<td>{{ record.date }}</td>
+				<td>{{ record.date|date:"c" }}</td>
 				<td><a href="{{ record.video_url }}"><i class="fa fa-video"></i></a></td>
 			</tr>
 		{% endfor %}
