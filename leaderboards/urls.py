@@ -12,6 +12,8 @@ urlpatterns = [
     path(r'categories/<int:pk>/', views.CategoryDetailLeaderboard.as_view(), name='category-detail'),
     path(r'categories/<int:pk>/leaderboard/', views.CategoryDetailLeaderboard.as_view(), name='category-detail-leaderboard'),
     path(r'categories/<int:pk>/records/', views.CategoryDetailRecords.as_view(), name='category-detail-records'),
+    path(r'change-password/', auth_views.PasswordChangeView.as_view(template_name='leaderboards/change_password.html', success_url='home'), name='change-password'),
+    path(r'change-username/', views.UsernameChange.as_view(), name='change-username'),
     path(r'courses/', views.CourseList.as_view(), name='course-list'),
     path(r'courses/<int:course_number>/', views.CourseDetailSixStarLeaderboard.as_view(), name='course-detail'),
     path(r'courses/<int:course_number>/six-star-leaderboard/', views.CourseDetailSixStarLeaderboard.as_view(), name='course-detail-six-star-leaderboard'),

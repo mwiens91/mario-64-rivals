@@ -1,13 +1,34 @@
 """Views for leaderboards."""
 
 from django.shortcuts import render
-from django.views.generic import DetailView, ListView, TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import (
+    DetailView,
+    FormView,
+    ListView,
+    TemplateView,
+)
+from .forms import UsernameEditForm
 from .models import Category, Course
 
 
 class Home(TemplateView):
     """A view for the homepage."""
     template_name = "leaderboards/home.html"
+
+
+class UsernameChange(FormView):
+    """A view to change a user's username."""
+    template_name = "leaderboards/change_username.html"
+    form_class = UsernameEditForm
+    success_url = reverse_lazy("home")
+
+    def form_valid(self, form):
+        """Set the user's username."""
+        self.request.user.username = form.cleaned_data["username"]
+        self.request.user.save()
+
+        return super().form_valid(form)
 
 
 class About(TemplateView):
