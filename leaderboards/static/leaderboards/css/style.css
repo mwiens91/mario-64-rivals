@@ -63,8 +63,8 @@ a.card[disabled] {
 	opacity: .8;
 }
 
-/* No adding for group list items */
-.list-group-item {
+/* No left padding for tight group list items */
+.list-group-item-tight {
 	padding-left: 0;
 }
 

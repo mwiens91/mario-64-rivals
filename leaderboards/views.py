@@ -8,7 +8,7 @@ from django.views.generic import (
     ListView,
     TemplateView,
 )
-from .forms import UsernameEditForm
+from .forms import UserEditForm
 from .models import Category, Course
 
 
@@ -17,11 +17,11 @@ class Home(TemplateView):
     template_name = "leaderboards/home.html"
 
 
-class UsernameChange(FormView):
-    """A view to change a user's username."""
-    template_name = "leaderboards/change_username.html"
-    form_class = UsernameEditForm
-    success_url = reverse_lazy("home")
+class ProfileEdit(FormView):
+    """A view to change a user's info."""
+    template_name = "leaderboards/account_settings_edit_profile.html"
+    form_class = UserEditForm
+    success_url = reverse_lazy("account-edit-profile")
 
     def form_valid(self, form):
         """Set the user's username."""

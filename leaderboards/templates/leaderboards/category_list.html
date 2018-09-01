@@ -20,9 +20,9 @@
 							{# Display top record #}
 							{% with best_record=category.get_top_record %}
 								{% if best_record == None %}
-									<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> No records!</li>
+									<li class="list-group-item list-group-item-tight"><i class="fa fa-star" style="color: gold"></i> No records!</li>
 								{% else %}
-									<li class="list-group-item"><i class="fa fa-star" style="color: gold"></i> {{ best_record.user.username }}</li>
+									<li class="list-group-item list-group-item-tight"><i class="fa fa-star" style="color: gold"></i> {{ best_record.user.username }}</li>
 								{% endif %}
 							{% endwith %}
 

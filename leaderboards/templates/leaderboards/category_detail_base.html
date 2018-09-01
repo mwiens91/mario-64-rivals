@@ -25,17 +25,17 @@
 					{# Display top records and record counts #}
 					{% with best_record=category.get_top_record %}
 						{% if best_record == None %}
-							<li class="list-group-item"><i class="fa fa-crown"></i>: No one!</li>
+							<li class="list-group-item list-group-item-tight"><i class="fa fa-crown"></i>: No one!</li>
 						{% else %}
-							<li class="list-group-item"><i class="fa fa-crown"></i>: {{ best_record.user.username }}</li>
+							<li class="list-group-item list-group-item-tight"><i class="fa fa-crown"></i>: {{ best_record.user.username }}</li>
 						{% endif %}
 					{% endwith %}
 
 					{% with num_records=category.get_record_count %}
 						{% if num_records == 1 %}
-							<li class="list-group-item"><i class="fa fa-chart-bar"></i>: {{ num_records }} record</li>
+							<li class="list-group-item list-group-item-tight"><i class="fa fa-chart-bar"></i>: {{ num_records }} record</li>
 						{% else %}
-							<li class="list-group-item"><i class="fa fa-chart-bar"></i>: {{ num_records }} records</li>
+							<li class="list-group-item list-group-item-tight"><i class="fa fa-chart-bar"></i>: {{ num_records }} records</li>
 						{% endif %}
 					{% endwith %}
 
