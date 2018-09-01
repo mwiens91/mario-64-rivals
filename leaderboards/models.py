@@ -134,6 +134,7 @@ class AbstractRecord(models.Model):
         default=datetime.date.today,
         help_text="The date the record was made.",)
     video_url = models.URLField(
+        verbose_name="video URL",
         help_text="A link to a recording of the record.")
 
     class Meta:
