@@ -148,5 +148,6 @@ AUTH_USER_MODEL = 'leaderboards.User'
 
 # Where to redirect to after login and logout
 
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

@@ -8,7 +8,7 @@ from leaderboards import views
 urlpatterns = [
     path(r'', views.Home.as_view(), name='home'),
     path(r'about/', views.About.as_view(), name='about'),
-    path(r'account/edit-profile', views.ProfileEdit.as_view(), name='account-edit-profile'),
+    path(r'account/edit-profile/', views.ProfileEdit.as_view(), name='account-edit-profile'),
     path(r'account/change-password/', auth_views.PasswordChangeView.as_view(template_name='leaderboards/account_settings_change_password.html', success_url='account-edit-profile'), name='account-change-password'),
     path(r'categories/', views.CategoryList.as_view(), name='category-list'),
     path(r'categories/<int:pk>/', views.CategoryDetailLeaderboard.as_view(), name='category-detail'),

@@ -1,5 +1,6 @@
 """Views for leaderboards."""
 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import (
@@ -17,7 +18,7 @@ class Home(TemplateView):
     template_name = "leaderboards/home.html"
 
 
-class ProfileEdit(FormView):
+class ProfileEdit(LoginRequiredMixin, FormView):
     """A view to change a user's info."""
     template_name = "leaderboards/account_settings_edit_profile.html"
     form_class = UserEditForm
