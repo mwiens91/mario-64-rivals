@@ -11,6 +11,14 @@ body {
 	}
 }
 
+.about-page-box {
+	text-align: center;
+}
+
+.about-page-heading {
+	padding-top: 0.69em;
+}
+
 /* Always see breadcrumbs, even on mobile */
 @media (max-width: 441px) {
 	.breadcrumb {

@@ -1,5 +1,7 @@
 {% extends "leaderboards/base.html" %}
 
+{% load static %}
+
 {% block subtitle %} - about{% endblock %}
 
 {% block breadcrumbs %}
@@ -7,5 +9,21 @@
 {% endblock %}
 
 {% block content %}
-	<h1>About</h1>
+	<div class="about-page-box">
+		<div style="padding-bottom: 2em">
+			<img class="rounded img-fluid" src="{% static "leaderboards/img/about_page.jpg" %}">
+		</div>
+
+		<h2>Mario 64 Rivals</h2>
+
+		<p>Mario 64 Rivals is an open-source web application written by <a href="http://mattwiens.ca">Matt Wiens</a> for competing against your best friends (dawww <i class="fa fa-heart"></i>) in Mario 64.</p>
+
+		<h4 class="about-page-heading">How do I join?</h4>
+
+		<p>This instance of Mario 64 Rivals is meant to be closed community, in the sense that all users know each other in person. If you're such a person, contact me and I'll hook you up with an account. If you're not such a person, feel free to host your own instance of Mario 64 Rivals <i class="far fa-smile"></i>.</p>
+
+		<h4 class="about-page-heading">Where's the source code?</h4>
+
+		<p>The source code can be found on Github <a href="https://github.com/mwiens91/mario-64-rivals">here</a>. It's licensed under the BSD 3-Clause license, which you can find <a href="https://github.com/mwiens91/mario-64-rivals/blob/master/LICENSE">here</a>.</p>
+	</div>
 {% endblock %}
