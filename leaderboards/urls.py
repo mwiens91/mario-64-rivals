@@ -23,4 +23,7 @@ urlpatterns = [
     path(r'login/', auth_views.LoginView.as_view(template_name='leaderboards/login.html'), name='login'),
     path(r'logout/', auth_views.LogoutView.as_view(), name='logout'),
     path(r'submit-record/', views.RecordSubmitHome.as_view(), name='record-submit-home'),
+    path(r'submit-record/six-star-course-record/', views.RecordSubmitSixStarCourseRecord.as_view(), name='record-submit-six-star-course-record'),
+    path(r'submit-record/seven-star-course-record/', views.RecordSubmitSevenStarCourseRecord.as_view(), name='record-submit-seven-star-course-record'),
+    path(r'submit-record/category-record/', views.RecordSubmitCategoryRecord.as_view(), name='record-submit-category-record'),
 ]

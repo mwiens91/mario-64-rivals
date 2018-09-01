@@ -1,7 +1,6 @@
 """Views for leaderboards."""
 
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import (
     DetailView,
@@ -9,8 +8,19 @@ from django.views.generic import (
     ListView,
     TemplateView,
 )
-from .forms import UserEditForm
-from .models import Category, Course
+from .forms import (
+    UserEditForm,
+    CategoryRecordCreateForm,
+    SixStarCourseRecordCreateForm,
+    SevenStarCourseRecordCreateForm,
+)
+from .models import (
+    Category,
+    Course,
+    CategoryRecord,
+    SixStarCourseRecord,
+    SevenStarCourseRecord,
+)
 
 
 class Home(TemplateView):
@@ -35,6 +45,63 @@ class ProfileEdit(LoginRequiredMixin, FormView):
 class RecordSubmitHome(LoginRequiredMixin, TemplateView):
     """A view for the about page."""
     template_name = "leaderboards/submit_record_home.html"
+
+
+class RecordSubmitSixStarCourseRecord(LoginRequiredMixin, FormView):
+    """A view to submit six star course records."""
+    template_name = "leaderboards/submit_record_six_star_course_record.html"
+    form_class = SixStarCourseRecordCreateForm
+    success_url = reverse_lazy("record-submit-home")
+
+    def form_valid(self, form):
+        """Create the record."""
+        SixStarCourseRecord.objects.create(
+            user=self.request.user,
+            time=form.cleaned_data["time"],
+            date=form.cleaned_data["date"],
+            video_url=form.cleaned_data["video_url"],
+            course=form.cleaned_data["course"],
+        )
+
+        return super().form_valid(form)
+
+
+class RecordSubmitSevenStarCourseRecord(LoginRequiredMixin, FormView):
+    """A view to submit seven star course records."""
+    template_name = "leaderboards/submit_record_seven_star_course_record.html"
+    form_class = SevenStarCourseRecordCreateForm
+    success_url = reverse_lazy("record-submit-home")
+
+    def form_valid(self, form):
+        """Create the record."""
+        SevenStarCourseRecord.objects.create(
+            user=self.request.user,
+            time=form.cleaned_data["time"],
+            date=form.cleaned_data["date"],
+            video_url=form.cleaned_data["video_url"],
+            course=form.cleaned_data["course"],
+        )
+
+        return super().form_valid(form)
+
+
+class RecordSubmitCategoryRecord(LoginRequiredMixin, FormView):
+    """A view to submit category records."""
+    template_name = "leaderboards/submit_record_category_record.html"
+    form_class = CategoryRecordCreateForm
+    success_url = reverse_lazy("record-submit-home")
+
+    def form_valid(self, form):
+        """Create the record."""
+        CategoryRecord.objects.create(
+            user=self.request.user,
+            time=form.cleaned_data["time"],
+            date=form.cleaned_data["date"],
+            video_url=form.cleaned_data["video_url"],
+            category=form.cleaned_data["category"],
+        )
+
+        return super().form_valid(form)
 
 
 class About(TemplateView):

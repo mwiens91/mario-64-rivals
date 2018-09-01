@@ -1,0 +1,19 @@
+{% extends "leaderboards/base.html" %}
+
+{% block subtitle %} - submit six star course record{% endblock %}
+
+{% block breadcrumbs %}
+	<li class="breadcrumb-item"><a href="{% url "record-submit-home" %}">Submit record</a></li>
+	<li class="breadcrumb-item active" aria-current="page">Six star course record<li>
+{% endblock %}
+
+
+{% block content %}
+	<h1>Submit six star course record</h1>
+
+	<form method="post" style="padding-top: 1em" novalidate>
+		{% csrf_token %}
+		{% include "leaderboards/includes/bootstrap4_form.html" with form=form %}
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+{% endblock %}
