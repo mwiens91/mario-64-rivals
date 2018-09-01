@@ -9,6 +9,7 @@ from .models import (
     CategoryRecord,
     SevenStarCourseRecord,
     SixStarCourseRecord,
+    Event,
 )
 
 
@@ -44,3 +45,9 @@ class SevenStarCourseRecordAdmin(admin.ModelAdmin):
 class SixStarCourseRecordAdmin(admin.ModelAdmin):
     """Display specific fields for admin page."""
     list_display = ('user', 'course', 'date', 'time', )
+
+
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    """Display specific fields for admin page."""
+    list_display = ('datetime', 'text')

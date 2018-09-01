@@ -200,3 +200,18 @@ class SevenStarCourseRecord(AbstractRecord):
 
     class Meta:
         ordering = ['course__course_number', 'time', 'date']
+
+
+class Event(models.Model):
+    """An event to show on the home page."""
+    datetime = models.DateTimeField(
+        auto_now_add=True,
+        help_text="The date and time the event occured.",)
+    text = models.TextField(help_text="The text of the event.")
+
+    class Meta:
+        ordering = ['-datetime']
+
+    def __str__(self):
+        """String representation of an event."""
+        return self.text
