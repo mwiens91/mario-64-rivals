@@ -30,11 +30,11 @@
 		</div>
 
 		<div class="loading" style="display: none;">
-			Loading...
+			<p class="font-weight-bold" style="text-align: center">loading</p>
 		</div>
 
 		{% if page_obj.has_next %}
-			<a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">More</a>
+			<a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
 		{% endif %}
 	{% else %}
 		<p class="font-weight-bold" style="text-align: center">No events to show <i class="far fa-frown"></i></p>
