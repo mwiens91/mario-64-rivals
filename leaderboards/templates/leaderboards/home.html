@@ -7,7 +7,7 @@
 {% block content %}
 	<h2 style="padding-bottom: 1em"><i class="fa fa-chart-line"></i> Recent activity</h2>
 
-	{% if not event_list %}
+	{% if event_list %}
 		{# Infinite container using Waypoint #}
 		<div class="infinite-container recent-activity-box">
 			{% for event in event_list %}
