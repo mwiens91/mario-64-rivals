@@ -260,5 +260,5 @@ def check_to_create_category_record_event(instance, created, **kwargs):
             text="{username} achieved the top record with {time} for the {category_name} category".format(
                 username=instance.user.username,
                 time=instance.display_time(),
-                category=instance.category.name,),
+                category_name=instance.category.name,),
             image=instance.category.preview_image,)
