@@ -30,18 +30,19 @@
 			{% for event in event_list %}
 				<div class="infinite-item">
 					<div class="row">
-						<div class="col-sm-2">
-							<img class="rounded img-fluid" src="{{ event.image.url }}">
+						<div class="col-90">
+							<img class="rounded" src="{{ event.image.url }}" width=80px>
 						</div>
 						<div class="col">
-							<p class="event-text" style="max-width: 30em">
+							<p style="max-width: 30em">
 								<span class="font-weight-bold"><i class="fa fa-crown"></i> {{ event.datetime|timesince }} ago:</span>
 							 {{ event.text }}!
 							</p>
+
+							<hr style="max-width: 30em; margin-left: 0">
 						</div>
 					</div>
 
-					<hr>
 				</div>
 			{% endfor %}
 		</div>

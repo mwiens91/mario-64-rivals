@@ -80,9 +80,3 @@ a.card[disabled] {
 		padding-top: 0.69em;
 	}
 }
-
-@media (max-width: 574px) {
-	.event-text{
-		padding-top: 0.69em;
-	}
-}
