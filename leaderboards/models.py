@@ -231,7 +231,7 @@ def check_to_create_six_star_course_record_event(instance, created, **kwargs):
     # Check if this is the best record
     if created and instance == instance.course.get_top_six_star_record():
         Event.objects.create(
-            text="{username} achieved the top six star record with time {time} on {course_name}".format(
+            text="{username} achieved the top six star record with {time} on {course_name}".format(
                 username=instance.user.username,
                 time=instance.display_time(),
                 course_name=instance.course.name,),
@@ -244,7 +244,7 @@ def check_to_create_seven_star_course_record_event(instance, created, **kwargs):
     # Check if this is the best record
     if created and instance == instance.course.get_top_seven_star_record():
         Event.objects.create(
-            text="{username} achieved the top seven star record with time {time} on {course_name}".format(
+            text="{username} achieved the top seven star record with {time} on {course_name}".format(
                 username=instance.user.username,
                 time=instance.display_time(),
                 course_name=instance.course.name,),
@@ -257,7 +257,7 @@ def check_to_create_category_record_event(instance, created, **kwargs):
     # Check if this is the best record
     if created and instance == instance.category.get_top_record():
         Event.objects.create(
-            text="{username} achieved the top record with time {time} for the {category_name} category".format(
+            text="{username} achieved the top record with {time} for the {category_name} category".format(
                 username=instance.user.username,
                 time=instance.display_time(),
                 category=instance.category.name,),
