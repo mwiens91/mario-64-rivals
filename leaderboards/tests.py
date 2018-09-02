@@ -1,7 +1,8 @@
 """Contains tests for the leaderboards app."""
 
 import datetime
-from django.test import TestCase
+from django.test import Client, TestCase
+from django.urls import reverse
 from .models import (
     User,
     Category,
@@ -59,3 +60,27 @@ class ModelTests(TestCase):
             time=datetime.timedelta(seconds=420),
             date=datetime.datetime.now(),
             video_url="fakeurl.com",)
+
+
+class ViewTests(TestCase):
+    """Test that views work properly.
+
+    Nothing fancy here, just hit the main pages.
+    """
+    def test_non_auth_views(self):
+        """Test that non-authorized views don't break."""
+        # Set up a test client
+        client = Client()
+
+        # Refactor this if you want to include detail views
+        url_names_to_hit = [
+            'home',
+            'about',
+            'category-list',
+            'course-list',
+            'login',
+        ]
+
+        # Hit a bunch of views
+        for url_name in url_names_to_hit:
+            self.assertEqual(client.get(reverse(url_name)).status_code, 200)
