@@ -35,8 +35,17 @@
 						</div>
 						<div class="col">
 							<p style="max-width: 30em">
-								<span class="font-weight-bold"><i class="fa fa-crown"></i> {{ event.datetime|timesince }} ago:</span>
-							 {{ event.text }}!
+								<i class="fa fa-crown"></i>
+								<span class="font-weight-bold"> {{ event.datetime|timesince }} ago:</span>
+								{{ event.text }}!
+
+								{% if event.video_url %}
+									<a href="{{ event.video_url }}"><i class="fa fa-video"></i></a>
+								{% endif %}
+
+								{% if event.information_url %}
+									<a href="{{ event.information_url }}"><i class="fa fa-list-ol"></i></a>
+								{% endif %}
 							</p>
 
 							<hr style="max-width: 30em; margin-left: 0">

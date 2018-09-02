@@ -5,6 +5,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.urls import reverse_lazy
 
 
 class User(AbstractUser):
@@ -216,6 +217,14 @@ class Event(models.Model):
         default="https://via.placeholder.com/320x224",
         upload_to='events/',
         help_text="Image for the event.",)
+    information_url = models.URLField(
+        verbose_name="information URL",
+        null=True,
+        help_text="An optional information link for the event.",)
+    video_url = models.URLField(
+        verbose_name="video URL",
+        null=True,
+        help_text="An optional video link for the event.",)
 
     class Meta:
         ordering = ['-datetime']
@@ -235,6 +244,10 @@ def check_to_create_six_star_course_record_event(instance, created, **kwargs):
                 username=instance.user.username,
                 time=instance.display_time(),
                 course_name=instance.course.name,),
+            information_url=reverse_lazy(
+                'course-detail-six-star-leaderboard',
+                args=(instance.course.course_number,)),
+            video_url=instance.video_url,
             image=instance.course.preview_image,)
 
 
@@ -248,6 +261,10 @@ def check_to_create_seven_star_course_record_event(instance, created, **kwargs):
                 username=instance.user.username,
                 time=instance.display_time(),
                 course_name=instance.course.name,),
+            information_url=reverse_lazy(
+                'course-detail-seven-star-leaderboard',
+                args=(instance.course.course_number,)),
+            video_url=instance.video_url,
             image=instance.course.preview_image,)
 
 
@@ -261,4 +278,8 @@ def check_to_create_category_record_event(instance, created, **kwargs):
                 username=instance.user.username,
                 time=instance.display_time(),
                 category_name=instance.category.name,),
+            information_url=reverse_lazy(
+                'category-detail-leaderboard',
+                args=(instance.category.pk,)),
+            video_url=instance.video_url,
             image=instance.category.preview_image,)
