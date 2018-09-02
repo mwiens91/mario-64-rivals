@@ -220,10 +220,12 @@ class Event(models.Model):
     information_url = models.URLField(
         verbose_name="information URL",
         null=True,
+        blank=True,
         help_text="An optional information link for the event.",)
     video_url = models.URLField(
         verbose_name="video URL",
         null=True,
+        blank=True,
         help_text="An optional video link for the event.",)
 
     class Meta:
