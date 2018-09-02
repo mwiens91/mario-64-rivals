@@ -9,6 +9,19 @@ your best friends (dawww :heart:) in Mario 64.  While you're free to
 host your own instance of it, I'm hosting mine at
 [mario64rivals.ca](https://mario64rivals.ca) (come and have a look!).
 
+## How does it work?
+
+There are two main classes of records: course records and category
+records. Course records involve getting stars in a particular course,
+while category records can be essentially anything (although classic
+examples would be 70 and 120 star runs).
+
+Users make records by selecting a record class, recording a video of
+themselves making a record, and submitting their time along with a video
+link. Mario 64 Rivals then displays leaderboards for each type of
+record, which users can look at see how great they are at Mario 64
+:grin:.
+
 ## Tech stack
 
 Mario 64 Rivals uses lots of tech. Its direct dependencies are
