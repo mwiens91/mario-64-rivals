@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/mwiens91/mario-64-rivals.svg?branch=master)](https://travis-ci.com/mwiens91/mario-64-rivals)
 [![codecov](https://codecov.io/gh/mwiens91/mario-64-rivals/branch/master/graph/badge.svg)](https://codecov.io/gh/mwiens91/mario-64-rivals)
-![Python version](https://img.shields.io/badge/python-3.5,3.6,3.7-blue.svg)
+[![Python version](https://img.shields.io/badge/python-3.5%20|%203.6%20|%203.7-blue.svg)](https://github.com/mwiens91/mario-64-rivals)
 
 # Mario 64 Rivals
 
