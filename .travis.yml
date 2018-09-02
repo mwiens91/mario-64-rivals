@@ -1,0 +1,48 @@
+language: python
+sudo: required
+
+addons:
+  postgresql: "10"
+  apt:
+    packages:
+    - postgresql-10
+    - postgresql-client-10
+
+env:
+  global:
+    - PGPORT=5433
+
+python:
+  - "3.5"
+  - "3.6"
+  - "3.7-dev"
+
+services:
+  - postgresql
+
+install:
+  # For Codecov
+  - pip install codecov
+
+  # Install requirements
+  - pip install -r requirements.txt
+
+  # Setup PostgreSQL DB
+  - psql --command "CREATE DATABASE mario64rivals;"
+  - psql --command "CREATE USER azurediamond WITH PASSWORD 'hunter2';"
+  - psql --command "ALTER ROLE azurediamond SET client_encoding TO 'utf8';"
+  - psql --command "ALTER ROLE azurediamond SET default_transaction_isolation TO 'read committed';"
+  - psql --command "ALTER ROLE azurediamond SET timezone TO 'UTC';"
+  - psql --command "GRANT ALL PRIVILEGES ON DATABASE mario64rivals TO azurediamond;"
+  - psql --command "ALTER USER azurediamond CREATEDB;"
+
+script:
+  # Create an .env file
+  - cp .env.example .env
+
+  # Run saltant tests
+  - coverage run manage.py migrate
+  - coverage run manage.py test
+
+after_success:
+  - codecov
