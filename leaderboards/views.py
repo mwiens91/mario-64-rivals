@@ -165,3 +165,47 @@ class CourseDetailSevenStarRecords(DetailView):
     model = Course
     template_name = "leaderboards/course_detail_seven_star_records.html"
     pk_url_kwarg = "course_number"
+
+
+class BadRequest400(TemplateView):
+    """A 400 page."""
+    template_name = "leaderboards/400.html"
+
+    def get(self, request, *args, **kwargs):
+        """Show the 400 page."""
+        return self.render_to_response(
+            self.get_context_data(**kwargs),
+            status=400,)
+
+
+class PermissionDenied403(TemplateView):
+    """A 403 page."""
+    template_name = "leaderboards/403.html"
+
+    def get(self, request, *args, **kwargs):
+        """Show the 403 page."""
+        return self.render_to_response(
+            self.get_context_data(**kwargs),
+            status=403,)
+
+
+class PageNotFound404(TemplateView):
+    """A 404 page."""
+    template_name = "leaderboards/404.html"
+
+    def get(self, request, *args, **kwargs):
+        """Show the 404 page."""
+        return self.render_to_response(
+            self.get_context_data(**kwargs),
+            status=404,)
+
+
+class ServerError500(TemplateView):
+    """A 500 page."""
+    template_name = "leaderboards/500.html"
+
+    def get(self, request, *args, **kwargs):
+        """Show the 500 page."""
+        return self.render_to_response(
+            self.get_context_data(**kwargs),
+            status=500,)
