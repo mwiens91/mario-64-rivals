@@ -1,8 +1,8 @@
 # Mario 64 Rivals
 
-Mario 64 Rivals is an open-source web application written by Matt Wiens
-for competing against your best friends (dawww :heart:) in Mario 64.
-While you're free to host your own instance of it, I'm hosting mine at
+Mario 64 Rivals is an open-source web application for competing against
+your best friends (dawww :heart:) in Mario 64.  While you're free to
+host your own instance of it, I'm hosting mine at
 [mario64rivals.ca](https://mario64rivals.ca) (come and have a look!).
 
 ## Tech stack
