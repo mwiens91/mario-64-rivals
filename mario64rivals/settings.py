@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 ROOT_URLCONF = 'mario64rivals.urls'
@@ -151,3 +152,10 @@ AUTH_USER_MODEL = 'leaderboards.User'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# Rollbar settings
+ROLLBAR = {
+    'access_token': os.environ['ROLLBAR_ACCESS_TOKEN'],
+    'environment': 'development' if DEBUG else 'production',
+    'root': BASE_DIR,
+}
