@@ -30,7 +30,7 @@ class Home(ListView):
     Displays paginated events.
     """
     model = Event
-    paginate_by = 20
+    paginate_by = 10
     template_name = "leaderboards/home.html"
 
 

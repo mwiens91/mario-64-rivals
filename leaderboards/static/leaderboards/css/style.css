@@ -11,6 +11,12 @@ body {
 	}
 }
 
+@media (min-width: 768px) {
+	.recent-activity-box {
+		padding-left: 0.69em;
+	}
+}
+
 .about-page-box {
 	text-align: center;
 }

@@ -5,7 +5,48 @@
 {% endblock %}
 
 {% block content %}
-	{% for event in event_list %}
-		{{ event }}
-	{% endfor %}
+	<h2 style="padding-bottom: 1em"><i class="fa fa-chart-line"></i> Recent activity</h2>
+
+	{# Infinite container using Waypoint #}
+	<div class="infinite-container recent-activity-box">
+		{% for event in event_list %}
+			<div class="infinite-item">
+				<div class="row">
+					<div class="col-sm-2">
+						<img class="rounded img-fluid" src="{{ event.image.url }}">
+					</div>
+					<div class="col">
+						<p class="column-detail-title" style="max-width: 30em">
+							<span class="font-weight-bold"><i class="fa fa-crown"></i> {{ event.datetime|timesince }} ago:</span>
+						 {{ event.text }}!
+						</p>
+					</div>
+				</div>
+
+				<hr>
+			</div>
+		{% endfor %}
+	</div>
+
+	<div class="loading" style="display: none;">
+		Loading...
+	</div>
+
+	{% if page_obj.has_next %}
+		<a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}">More</a>
+	{% endif %}
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		var infinite = new Waypoint.Infinite({
+			element: $('.infinite-container')[0],
+			onBeforePageLoad: function () {
+				$('.loading').show();
+			},
+			onAfterPageLoad: function ($items) {
+				$('.loading').hide();
+			}
+		});
+	</script>
 {% endblock %}
