@@ -58,7 +58,16 @@ To get your database tables working with Mario 64 Rivals, run
 ./manage migrate
 ```
 
-### Step 5: run the server
+### Step 5: collect static files
+
+This step is unnecessary if you set `DEBUG=True` in your `.env`;
+otherwise, run
+
+```
+./manage collectstatic
+```
+
+### Step 6: run the server
 
 Now you can run a local Mario 64 Rivals server with
 
