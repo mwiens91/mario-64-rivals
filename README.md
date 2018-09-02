@@ -34,7 +34,7 @@ Mario 64 Rivals uses lots of tech. Its direct dependencies are
 - [DataTables](https://datatables.net/) - table plug-in for jQuery
 - [Waypoints](http://imakewebthings.com/waypoints/) - a library that makes it easy to execute a function whenever you scroll to an element
 - [Font Awesome](https://fontawesome.com/) - the iconic SVG, font, and CSS toolkit
-
+- [Rollbar](https://rollbar.com/) - error tracking & crash reporting for software developers
 
 ## Let me host this!
 
