@@ -21,7 +21,8 @@ Mario 64 Rivals uses lots of tech. Its direct dependencies are
 
 ## Let me host this!
 
-Alright! Follow these steps:
+Alright! I'll show you have to get a local server running. Follow these
+steps:
 
 ### Step 1: set up a Django-ready PostgreSQL database
 
