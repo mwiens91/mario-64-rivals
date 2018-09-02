@@ -45,7 +45,7 @@ pip by running
 pip3 install -r requirements.txt
 ```
 
-### Step 5: make database migrations
+### Step 4: make database migrations
 
 To get your database tables working with Mario 64 Rivals, run
 
@@ -53,7 +53,7 @@ To get your database tables working with Mario 64 Rivals, run
 ./manage migrate
 ```
 
-### Step 4: run the server
+### Step 5: run the server
 
 Now you can run a local Mario 64 Rivals server with
 
