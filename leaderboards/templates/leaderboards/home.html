@@ -5,6 +5,23 @@
 {% endblock %}
 
 {% block content %}
+	{# Display a welcome message #}
+	<div class="jumbotron" style="padding-top: 1em; padding-bottom: 1em">
+		{% if user.is_authenticated %}
+			<h1 class="">Welcome back {{ user.username }}!</h1>
+			<p class="lead">Want to add a new record?</p>
+			<p class="lead">
+				<a class="btn btn-primary btn-lg" href="{% url "record-submit-home" %}" role="button">Let's do it</a>
+			</p>
+		{% else %}
+			<h1 class="">Welcome to Mario 64 Rivals!</h1>
+			<p class="lead">Did you want to sign in?</p>
+			<p class="lead">
+				<a class="btn btn-primary btn-lg" href="{% url "login" %}" role="button">Let's do it</a>
+			</p>
+		{% endif %}
+	</div>
+
 	<h2 style="padding-bottom: 1em"><i class="fa fa-chart-line"></i> Recent activity</h2>
 
 	{% if event_list %}
@@ -17,7 +34,7 @@
 							<img class="rounded img-fluid" src="{{ event.image.url }}">
 						</div>
 						<div class="col">
-							<p class="column-detail-title" style="max-width: 30em">
+							<p class="event-text" style="max-width: 30em">
 								<span class="font-weight-bold"><i class="fa fa-crown"></i> {{ event.datetime|timesince }} ago:</span>
 							 {{ event.text }}!
 							</p>
