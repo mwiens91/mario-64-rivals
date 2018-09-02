@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.com/mwiens91/mario-64-rivals.svg?branch=master)](https://travis-ci.com/mwiens91/mario-64-rivals)
+[![codecov](https://codecov.io/gh/mwiens91/mario-64-rivals/branch/master/graph/badge.svg)](https://codecov.io/gh/mwiens91/mario-64-rivals)
+![Python version](https://img.shields.io/badge/python-3.5,3.6,3.7-blue.svg)
+
 # Mario 64 Rivals
 
 Mario 64 Rivals is an open-source web application for competing against
