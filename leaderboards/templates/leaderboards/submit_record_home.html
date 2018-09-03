@@ -7,16 +7,16 @@
 {% endblock %}
 
 {% block content %}
-<div class="jumbotron">
-	<h1 class="display-4">Submit record</h1>
-	<p class="lead">All records must be accompanied by a long-lived video link: for example, YouTube videos are good because they are never removed, but Twitch VODs are not good because they are removed after 60 days.</p>
-	<p class="lead">Include the time-stamp for where the record starts in the video link.</p>
-	<hr class="my-4">
-	<p>Choose the type of record to submit:</p>
-	<div class="lead">
-		<a class="btn btn-primary btn-lg" style="margin-bottom: 0.5em" href="{% url "record-submit-six-star-course-record" %}" role="button">6 <i class="far fa-star"></i> Course Record</a>
-		<a class="btn btn-primary btn-lg" style="margin-bottom: 0.5em" href="{% url "record-submit-seven-star-course-record" %}" role="button">7 <i class="far fa-star"></i> Course Record</a>
-		<a class="btn btn-primary btn-lg" style="margin-bottom: 0.5em" href="{% url "record-submit-category-record" %}" role="button">Category Record</a>
+	<div class="jumbotron">
+		<h1 class="display-4">Submit record</h1>
+		<p class="lead">All records must be accompanied by a long-lived video link: for example, YouTube videos are good because they are never removed, but Twitch VODs are not good because they are removed after 60 days.</p>
+		<p class="lead">Include the time-stamp for where the record starts in the video link.</p>
+		<hr class="my-4">
+		<p>Choose the type of record to submit:</p>
+		<div class="lead">
+			<a class="btn btn-primary btn-lg" style="margin-bottom: 0.5em" href="{% url "record-submit-six-star-course-record" %}" role="button">6 <i class="far fa-star"></i> Course Record</a>
+			<a class="btn btn-primary btn-lg" style="margin-bottom: 0.5em" href="{% url "record-submit-seven-star-course-record" %}" role="button">7 <i class="far fa-star"></i> Course Record</a>
+			<a class="btn btn-primary btn-lg" style="margin-bottom: 0.5em" href="{% url "record-submit-category-record" %}" role="button">Category Record</a>
+		</div>
 	</div>
-</div>
 {% endblock %}
