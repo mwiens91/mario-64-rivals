@@ -2,7 +2,7 @@ from django.db import migrations
 
 CATEGORY_DICTIONARY = {
     "16 Star" : {
-        "description": "16 star race! Start the timer when powering the game on; end the timer when Mario touches the big star at the end of the game (with at least 70 stars).",
+        "description": "16 star race! Start the timer when powering the game on; end the timer when Mario touches the big star at the end of the game (with at least 16 stars).",
         "preview_img": "default_category_images/16_star.png"
         },
 }
