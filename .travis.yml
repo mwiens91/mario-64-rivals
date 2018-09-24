@@ -40,7 +40,7 @@ script:
   # Create an .env file
   - cp .env.example .env
 
-  # Run saltant tests
+  # Run tests
   - coverage run manage.py migrate
   - coverage run manage.py test
 
