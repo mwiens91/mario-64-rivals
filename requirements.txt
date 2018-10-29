@@ -19,7 +19,7 @@ psycopg2-binary==2.7.5
 ptyprocess==0.6.0
 Pygments==2.2.0
 pytz==2018.5
-requests==2.19.1
+requests==2.20.0
 rollbar==0.14.3
 simplegeneric==0.8.1
 six==1.11.0
