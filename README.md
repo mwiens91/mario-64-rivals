@@ -13,14 +13,13 @@ host your own instance of it, I'm hosting mine at
 
 There are two main classes of records: course records and category
 records. Course records involve getting stars in a particular course,
-while category records can be essentially anything (although classic
-examples would be 70 and 120 star runs).
+while category records can be essentially anything (the canonical 16,
+70, and 120 star categories are included out of the box).
 
 Users make records by selecting a record class, recording a video of
 themselves making a record, and submitting their time along with a video
-link. Mario 64 Rivals then displays leaderboards for each type of
-record, which users can look at see how great they are at Mario 64
-:grin:.
+link. Mario 64 Rivals displays leaderboards for each type of record,
+which users can look at see how great they are at Mario 64 :grin:.
 
 ## Tech stack
 
@@ -43,7 +42,7 @@ steps:
 
 ### Step 1: set up a Django-ready PostgreSQL database
 
-If you're running Ubuntu, DigitalOcean's instructions here are great:
+If you're running Ubuntu, DigitalOcean's instructions are great:
 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04
 
