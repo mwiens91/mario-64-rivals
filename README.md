@@ -79,7 +79,17 @@ otherwise, run
 ./manage collectstatic
 ```
 
-### Step 6: run the server
+### Step 6: create an admin account
+
+Run
+
+```
+./manage createsuperuser
+```
+
+and follow the instructions that the command gives you.
+
+### Step 7: run the server
 
 Now you can run a local Mario 64 Rivals server with
 
