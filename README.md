@@ -7,7 +7,7 @@
 Mario 64 Rivals is an open-source web application for competing against
 your best friends (dawww :heart:) in Mario 64. If you want to take a
 look, I've put a static snapshot of a live version I used to host
-[here](https://github.com/mwiens91/mario-64-rivals-snapshot).
+[here](https://mwiens91.github.io/mario-64-rivals-snapshot/).
 
 ## How does it work?
 
